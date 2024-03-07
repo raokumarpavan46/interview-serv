@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { TableView } from './component/TableView';
+import React, { useState } from 'react';
 
 function App() {
+
+  const [components, setComponents] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+       <h1>ServSys Interview Demo:</h1>
       </header>
+  
+  <button onClick={ () =>{
+     setComponents([...components, "Table View"]) 
+   }
+  }>
+      Get Facts
+    </button>
+    {components.map((item,i)=> <TableView/>)}
     </div>
   );
 }
